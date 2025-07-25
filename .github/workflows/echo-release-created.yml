@@ -1,5 +1,8 @@
+# Ctrl + Space activates completions.
+
 name: new release
-on: 
+on:
+  workflow_dispatch:  
   release: 
     types: [created,published,deleted]
 jobs:
