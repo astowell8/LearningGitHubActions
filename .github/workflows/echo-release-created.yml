@@ -7,5 +7,10 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: "Print Release"
-        run: echo "New Release"
+        run: |
+          echo "::group::Release Info"
+          echo "New Release Triggered"
+          echo "Event: ${{ github.event.action }}"
+          echo "Tag: ${{ github.event.release.tag_name }}"
+          echo "::endgroup::"
 
