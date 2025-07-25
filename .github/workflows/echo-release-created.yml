@@ -1,7 +1,7 @@
 name: new release
 on: 
   release: 
-    types: [created]
+    types: [created,published]
 jobs:
   log-release-created:    
     runs-on: windows-latest
