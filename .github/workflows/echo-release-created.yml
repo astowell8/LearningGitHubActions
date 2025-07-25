@@ -1,0 +1,10 @@
+name: new release
+on: 
+  release: ["Created"]
+jobs:
+  log-release-created:    
+    runs-on: windows-latest
+    steps:
+      - name: "Print Release"
+        run: echo "New Release"
+
