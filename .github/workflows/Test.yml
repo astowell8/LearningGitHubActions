@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Test Learning GitHub Actions
 
 # Controls when the workflow will run
 on:
@@ -22,6 +22,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
+
+      # Waits five seconds
+      - name: Wait 5 then say hi
+        run: sleep 5
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
