@@ -44,3 +44,62 @@ Seconds Minutes Hours Day-of-Month Month Day-of-Week [Year]
 * Running periodic system checks
 * Triggering Lambda functions or cloud workflows
 
+
+
+### ✅ Cron Expression Syntax Overview
+
+A **Cron expression** defines a recurring schedule and consists of **5 or 6 space-separated fields**, depending on the system.
+
+---
+
+## 🔹 Common 5-Field Format (UNIX/Linux Crontab)
+
+```
+* * * * *  command-to-run
+| | | | |
+| | | | +---- Day of Week (0-6) (Sunday = 0 or 7)
+| | | +------ Month (1-12)
+| | +-------- Day of Month (1-31)
+| +---------- Hour (0-23)
++------------ Minute (0-59)
+```
+
+---
+
+## 🔹 Extended 6-Field Format (Quartz, AWS, Azure, etc.)
+
+```
+Seconds Minutes Hours Day-of-Month Month Day-of-Week [Year]
+|       |       |     |             |     |
+0–59    0–59    0–23  1–31          1–12  0–7 (Sun=0 or 7)
+```
+
+---
+
+## 🔹 Special Characters
+
+| Symbol | Meaning                              | Example                 |
+| ------ | ------------------------------------ | ----------------------- |
+| `*`    | All values (wildcard)                | `* * * * *` (every min) |
+| `,`    | List of values                       | `1,15` (1st and 15th)   |
+| `-`    | Range of values                      | `1-5` (Mon to Fri)      |
+| `/`    | Step values                          | `*/10` (every 10 mins)  |
+| `?`    | No specific value (used in Quartz)   |                         |
+| `L`    | Last day of week/month (Quartz only) | `L` (last day)          |
+| `W`    | Nearest weekday (Quartz only)        | `15W` (weekday near 15) |
+| `#`    | Nth weekday of month (Quartz only)   | `6#3` (3rd Friday)      |
+
+---
+
+## 🔹 Examples
+
+| Cron Expression     | Meaning                          |
+| ------------------- | -------------------------------- |
+| `0 0 * * *`         | Every day at midnight            |
+| `*/15 9-17 * * 1-5` | Every 15 min during weekdays     |
+| `0 12 1 * *`        | At noon on the 1st of each month |
+| `0 0 1 1 *`         | Every Jan 1 at midnight          |
+
+---
+
+Let me know what platform you're using (e.g. Linux, GitHub Actions, AWS, Azure), and I can tailor the syntax or help you write one.
