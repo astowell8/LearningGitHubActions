@@ -4,13 +4,7 @@ name: Test Learning GitHub Actions
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "Main" branch
-  push:
-    branches: [ "Main" ]
-    
-  schedule:
-    - cron: "*/5 * * * *"  #Every 5th minute.
-
+  
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
